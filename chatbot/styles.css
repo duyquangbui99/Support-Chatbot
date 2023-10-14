@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;600&display=swap');
+
+/*======= Variables CSS =======*/
+:root{
+    /*======= Colors =======*/
+    --white-color: #f9f9f9;
+    --black-color: #040402;
+    --grey-color: #ECECEC;
+    --dark-grey-color: #a8a5a9;
+    --orange-color: #fe5101;
+    --light-orange: #ff9248;
+    --lighter-orange:#ffb38a;
+     /*======= Font Weight =======*/
+     --small-bold: 510;
+     --medium-bold: 700;
+     --large-bold: 900;
+}
