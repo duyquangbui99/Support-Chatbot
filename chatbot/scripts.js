@@ -2,7 +2,7 @@
 fetch('intents.json') // Replace 'intents.json' with the path to your JSON file
   .then(response => response.json())
   .then(jsonData => {
-
+    
     function removeSpecialCharacters(text) {
         return text.replace(/[!@#$%^&*(),.?":{}|<>\/\\]/g, ' ');
     }
@@ -18,7 +18,6 @@ fetch('intents.json') // Replace 'intents.json' with the path to your JSON file
     userInputText = removeSpecialCharacters(userInputText);
     // Split the user input text into individual words
     var userInputWords = userInputText.toLowerCase().split(/\s+/);
-
 
     // Initialize response variables
     var bestScore = 0;
