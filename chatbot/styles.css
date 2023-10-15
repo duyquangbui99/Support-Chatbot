@@ -44,7 +44,7 @@ body{
 .chatbox{
     margin: 30px 30px;
     height: 80%;
-    width: 30%;
+    width: 400px;
     background-color: var(--white-color);
     border-radius: 20px;
     filter: blur();
@@ -113,8 +113,10 @@ body{
 
 /* ---- ChatBox CONTENT--- */
 .chatbox-content{
-    height: 70%;
+    height: 76%;
     width: 100%;
+    padding-bottom: 30px;
+    overflow: auto;
 }
 
 .user-message-container{
@@ -181,5 +183,8 @@ body{
     .chatbox{
         height: 80%;
         width: 80%;
+    }
+    .chatbox-content{
+        height: 77%;
     }
 }
