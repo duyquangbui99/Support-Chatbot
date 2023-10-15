@@ -1,54 +1,76 @@
-// Load the JSON data from a file
-fetch('intents.json') // Replace 'intents.json' with the path to your JSON file
-  .then(response => response.json())
-  .then(jsonData => {
-    
-    function removeSpecialCharacters(text) {
-        return text.replace(/[!@#$%^&*(),.?":{}|<>\/\\]/g, ' ');
-    }
-    // Get the user input element
-    var userInputElement = document.querySelector('.userinput');
+    document.addEventListener("DOMContentLoaded", function () {
+        const messageInput = document.getElementById("message-input");
+        const chatboxContent = document.getElementById("chatbox-content");
+        const sendButton = document.querySelector(".send-btn");
 
-    // Get the bot answer element
-    var botAnswerElement = document.querySelector('.botAnswer');
+        // Load the intents from the JSON file (replace with your actual JSON URL)
+        fetch('intents.json')
+            .then(response => response.json())
+            .then(data => {
+                const intents = data.intents;
 
-    // Get the text from the user input
-    var userInputText = userInputElement.textContent;
-    //remove special character from userinput
-    userInputText = removeSpecialCharacters(userInputText);
-    // Split the user input text into individual words
-    var userInputWords = userInputText.toLowerCase().split(/\s+/);
+                function botReply(userMessage) {
+                    const userMessageContainer = document.createElement("div");
+                    userMessageContainer.classList.add("user-message-container");
 
-    // Initialize response variables
-    var bestScore = 0;
-    var bestResponse = "I don't understand. Can you please rephrase your question?";
+                    const userMessageContent = document.createElement("div");
+                    userMessageContent.classList.add("user-message-content");
 
-    
-    // Loop through the JSON data and check if any patterns match the user input
-    jsonData.intents.forEach(intent => {
-        intent.patterns.forEach(pattern => {
-            // Split the pattern into individual words
-            var patternWords = pattern.toLowerCase().split(/\s+/);
+                    const userMessageElement = document.createElement("p");
+                    userMessageElement.classList.add("user-message");
+                    userMessageElement.textContent = userMessage;
 
-            // Calculate the similarity score by counting common words
-            var score = patternWords.reduce((total, word) => {
-                if (userInputWords.includes(word)) {
-                    return total + 1;
+                    userMessageContent.appendChild(userMessageElement);
+                    userMessageContainer.appendChild(userMessageContent);
+                    chatboxContent.appendChild(userMessageContainer);
+
+                    // Find the best response based on patterns
+                    let botResponse = "I'm sorry, I don't understand your message.";
+                    for (const intent of intents) {
+                        for (const pattern of intent.patterns) {
+                            const regex = new RegExp(pattern, "i"); // Case-insensitive match
+                            if (userMessage.match(regex)) {
+                                botResponse = intent.responses[Math.floor(Math.random() * intent.responses.length)];
+                                break; // Stop searching for patterns once a match is found
+                            }
+                        }
+                    }
+
+                    // Create and append the bot's response
+                    const botMessageContainer = document.createElement("div");
+                    botMessageContainer.classList.add("bot-message-container");
+
+                    const botMessageContent = document.createElement("div");
+                    botMessageContent.classList.add("bot-message-content");
+
+                    const botMessage = document.createElement("p");
+                    botMessage.classList.add("bot-message");
+                    botMessage.textContent = "...";
+                    setTimeout(function () {
+                        botMessage.textContent = botResponse;
+                    }, 1000);
+
+                    botMessageContent.appendChild(botMessage);
+                    botMessageContainer.appendChild(botMessageContent);
+                    chatboxContent.appendChild(botMessageContainer);
+
+                    // Clear the input field
+                    messageInput.value = "";
                 }
-                return total;
-            }, 0);
 
-            if (score > bestScore) {
-                bestScore = 0;
-                bestResponse = intent.responses[Math.floor(Math.random() * intent.responses.length)];
-            }
+                sendButton.addEventListener("click", function () {
+                    const userMessage = messageInput.value;
+                    botReply(userMessage);
+                });
 
-        });
+                messageInput.addEventListener("keyup", function (event) {
+                    if (event.key === "Enter") {
+                        const userMessage = messageInput.value;
+                        botReply(userMessage);
+                    }
+                });
+            })
+            .catch(error => {
+                console.error("Error loading intents:", error);
+            });
     });
-
-    // Set the text of the "botAnswer" element to the best response
-    botAnswerElement.textContent = bestResponse;
-  })
-  .catch(error => {
-    console.error('Error loading JSON data:', error);
-  });
