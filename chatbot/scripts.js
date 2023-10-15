@@ -2,6 +2,10 @@
 fetch('intents.json') // Replace 'intents.json' with the path to your JSON file
   .then(response => response.json())
   .then(jsonData => {
+
+    function removeSpecialCharacters(text) {
+        return text.replace(/[!@#$%^&*(),.?":{}|<>\/\\]/g, ' ');
+    }
     // Get the user input element
     var userInputElement = document.querySelector('.userinput');
 
@@ -10,14 +14,17 @@ fetch('intents.json') // Replace 'intents.json' with the path to your JSON file
 
     // Get the text from the user input
     var userInputText = userInputElement.textContent;
-
+    //remove special character from userinput
+    userInputText = removeSpecialCharacters(userInputText);
     // Split the user input text into individual words
     var userInputWords = userInputText.toLowerCase().split(/\s+/);
+
 
     // Initialize response variables
     var bestScore = 0;
     var bestResponse = "I don't understand. Can you please rephrase your question?";
 
+    
     // Loop through the JSON data and check if any patterns match the user input
     jsonData.intents.forEach(intent => {
         intent.patterns.forEach(pattern => {
@@ -33,9 +40,10 @@ fetch('intents.json') // Replace 'intents.json' with the path to your JSON file
             }, 0);
 
             if (score > bestScore) {
-                bestScore = score;
+                bestScore = 0;
                 bestResponse = intent.responses[Math.floor(Math.random() * intent.responses.length)];
             }
+
         });
     });
 
