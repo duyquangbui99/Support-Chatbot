@@ -113,9 +113,9 @@ body{
 
 /* ---- ChatBox CONTENT--- */
 .chatbox-content{
-    height: 76%;
+    height: 69%;
     width: 100%;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     overflow: auto;
 }
 
@@ -150,6 +150,29 @@ body{
 .user-message{
     font-weight: var(--small-bold);
 }
+/* ---- ChatBox Suggestion--- */
+.chatbox-sugesstion{
+    height: 35px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+li{
+    list-style-type: none;
+}
+.suggest{
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 20px;
+    background-color: var(--grey-color);
+}
+.suggest:hover{
+    background-color: var(--dark-grey-color);
+}
+
+
+
 /* ---- ChatBox INPUTFIELD--- */
 .chatbox-inputfield{
     bottom: 0;
@@ -178,6 +201,8 @@ body{
 .send-btn:hover{
     background-color: var(--orange-color);
 }
+/* ---- ChatBox INTRODUCTION--- */
+
 
 @media screen and (max-width: 480px) {
     .chatbox{
@@ -185,6 +210,9 @@ body{
         width: 80%;
     }
     .chatbox-content{
-        height: 77%;
+        height: 67%;
+    }
+    li{
+        font-size: .8rem;
     }
 }
