@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatboxContent = document.getElementById("chatbox-content");
     const sendButton = document.querySelector(".send-btn");
     const chatboxContainer = document.querySelector(".chatbox-content");
+    const suggestionElements = document.querySelectorAll(".suggest");
 
 
     // Load the intents from the JSON file (replace with your actual JSON URL)
@@ -26,13 +27,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 userMessageContainer.appendChild(userMessageContent);
                 chatboxContent.appendChild(userMessageContainer);
 
+    
                 // Find the best response based on patterns
                 let botResponse = "I'm sorry, I don't understand your message.";
                 for (const intent of intents) {
                     for (const pattern of intent.patterns) {
-                        const regex = new RegExp(pattern, "i"); // Case-insensitive match
+                        const regex = new RegExp(pattern, "i");
                         if (userMessage.match(regex)) {
                             botResponse = intent.responses[Math.floor(Math.random() * intent.responses.length)];
+            
+                            // If there are suggestions, update the suggestions in the chat
+                            if (intent.suggestions) {
+                                const suggestionList = document.querySelector(".chatbox-suggestion");
+                                suggestionList.innerHTML = ''; 
+                                
+                                intent.suggestions.forEach(suggestion => {
+                                    const suggestionElement = document.createElement("li");
+                                    suggestionElement.classList.add("suggest");
+                                    suggestionElement.textContent = suggestion;
+                                    suggestionList.appendChild(suggestionElement);
+                                     // Add click event listener to the new suggestion
+                                    suggestionElement.addEventListener("click", handleSuggestionClick);
+                                });
+                            }
                             break; // Stop searching for patterns once a match is found
                         }
                     }
@@ -59,10 +76,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Clear the input field
                 messageInput.value = "";
             }
+
             //Keep the chatbox container scrolled to the bottom so that new messages are always visible 
             function scrollToBottom() {
                 chatboxContainer.scrollTop = chatboxContainer.scrollHeight;
             }
+
+                    // Function to handle suggestion click
+            function handleSuggestionClick(event) {
+                const clickedSuggestion = event.target.textContent;
+                console.log("Clicked suggestion: " + clickedSuggestion); // Add this line to check if the click event is triggered
+                botReply(clickedSuggestion);
+                scrollToBottom();
+            }
+            
+
+            // Add click event listeners to suggestion elements
+            suggestionElements.forEach(suggestionElement => {
+                suggestionElement.addEventListener("click", handleSuggestionClick);
+            });
+            
 
             sendButton.addEventListener("click", function () {
                 const userMessage = messageInput.value;
