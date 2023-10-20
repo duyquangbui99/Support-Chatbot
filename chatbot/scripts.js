@@ -12,28 +12,38 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             const intents = data.intents;
 
+            // Pre-compile regular expressions for each intent
+            const intentRegexMap = new Map();
+
+            intents.forEach(intent => {
+                const regexPatterns = intent.patterns.map(pattern => new RegExp(pattern, "i"));
+                intentRegexMap.set(intent.tag, regexPatterns);
+            });
+
             function botReply(userMessage) {
                 const userMessageContainer = document.createElement("div");
                 userMessageContainer.classList.add("user-message-container");
 
                 const userMessageContent = document.createElement("div");
                 userMessageContent.classList.add("user-message-content");
+                userMessageContent.classList.add("blur-effect");
 
                 const userMessageElement = document.createElement("p");
                 userMessageElement.classList.add("user-message");
                 userMessageElement.textContent = userMessage;
 
+            
                 userMessageContent.appendChild(userMessageElement);
                 userMessageContainer.appendChild(userMessageContent);
                 chatboxContent.appendChild(userMessageContainer);
 
     
                 // Find the best response based on patterns
-                let botResponse = "I'm sorry, I don't understand your message.";
-                for (const intent of intents) {
-                    for (const pattern of intent.patterns) {
-                        const regex = new RegExp(pattern, "i");
-                        if (userMessage.match(regex)) {
+                let botResponse = "I don't understand your message! However I have my brother, ChatGPT. Go ask him, he might know something!";
+                for (const [tag, regexPatterns] of intentRegexMap) {
+                    for (const regex of regexPatterns) {
+                        if (regex.test(userMessage)) {
+                            const intent = intents.find(intent => intent.tag === tag);
                             botResponse = intent.responses[Math.floor(Math.random() * intent.responses.length)];
             
                             // If there are suggestions, update the suggestions in the chat
@@ -44,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 intent.suggestions.forEach(suggestion => {
                                     const suggestionElement = document.createElement("li");
                                     suggestionElement.classList.add("suggest");
+                                    suggestionElement.classList.add("blur-effect");
                                     suggestionElement.textContent = suggestion;
                                     suggestionList.appendChild(suggestionElement);
                                      // Add click event listener to the new suggestion
@@ -61,12 +72,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const botMessageContent = document.createElement("div");
                 botMessageContent.classList.add("bot-message-content");
-
+                
                 const botMessage = document.createElement("p");
                 botMessage.classList.add("bot-message");
+               
                 botMessage.textContent = "...";
                 setTimeout(function () {
-                    botMessage.textContent = botResponse;
+                    botMessage.innerHTML = botResponse; // Use innerHTML to interpret HTML
                 }, 600);   // make a delay reponse of 600ms
 
                 botMessageContent.appendChild(botMessage);
