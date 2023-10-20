@@ -22,7 +22,7 @@
             "tag": "datetime",
             "patterns": ["the time", "the date", "date", "time", "tell me the date", "day", "your open time", "hour"],
             "responses": ["Our Operating hours: Mon-Fri: 9:30 AM - 7:30 Pm, Sunday: 11:30 AM - 6:00 PM"],
-            "suggestions": ["What services do you offer?"]
+            "suggestions": ["See you later!"]
         },
         {
             "tag": "location",
@@ -33,13 +33,13 @@
         {
             "tag": "appointment",
             "patterns": ["appointment", "schedule", "appointments","cancellations", "rescheduling","confirmations", "reminders"],
-            "responses": ["For more booking information, please visit our site: <a href=\"https://918naillounge.com/booking/\" target=\"_blank\">Visit Example Website</a>"],
+            "responses": ["For more booking information, please visit our site: <a href=\"https://918naillounge.com/booking/\" target=\"_blank\">Appointment Website</a>"],
             "suggestions": ["What are your business hours?", "What services do you offer?"]
         },
         {
             "tag": "services",
             "patterns": ["nail", "services","available", "options", "types", "specialize", "service", "offered", "package", "manicures", "pedicures", "offer", "art", "design", "creative", "unique", "designs", "safety", "hygiene", "servicescan", "polish", "treatments"],
-            "responses": ["We offer these service... , visit our site for me!"],
+            "responses": ["Please visit our site for the services details: <a href=\"https://918naillounge.com/services/\" target=\"_blank\">Our Service Website</a>"],
             "suggestions": ["What are your business hours?","Thank you!"]
         }
         ,
