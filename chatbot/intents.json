@@ -4,31 +4,51 @@
             "tag": "greeting",
             "patterns": ["Hi", "Hey", "Is anyone there?", "Hello", "Hay"],
             "responses": ["Hello", "Hi", "Hi there"],
-            "suggestions": ["Tell me the time", "Where are you located?", "What services do you offer?"]
+            "suggestions": ["What are your business hours?", "Where are you located?", "What services do you offer?"]
         },
         {
             "tag": "goodbye",
             "patterns": ["Bye", "See you later", "Goodbye"],
             "responses": ["See you later", "Have a nice day", "Bye! Come back again"],
-            "suggestions": ["Say something", "Tell me the date", "What's your pricing?"]
+            "suggestions": ["I have other question!"]
         },
         {
             "tag": "thanks",
             "patterns": ["Thanks", "Thank you", "That's helpful", "Thanks for the help"],
             "responses": ["Happy to help!", "Any time!", "My pleasure", "You're most welcome!"],
-            "suggestions": ["What are your business hours?", "Do you accept donations?", "Tell me a joke."]
+            "suggestions": ["I have other question!"]
         },
         {
             "tag": "datetime",
             "patterns": ["the time", "the date", "date", "time", "tell me the date", "day", "your open time", "hour"],
             "responses": ["Our Operating hours: Mon-Fri: 9:30 AM - 7:30 Pm, Sunday: 11:30 AM - 6:00 PM"],
-            "suggestions": ["What services do you offer?", "Where are you located?", "Goodbye"]
+            "suggestions": ["What services do you offer?"]
         },
         {
             "tag": "location",
-            "patterns": ["where location", "address", "located at", "business address", "find us", "place", "physical location"],
+            "patterns": ["where location", "address", "located at", "business address", "find us", "place", "where your location","Where are you located?","located"],
             "responses": ["Our business address: 305 N Main St#121, Broken Arrow, OK, 74012"],
-            "suggestions": ["What are your business hours?", "How much do your services cost?", "Say something"]
+            "suggestions": ["What are your business hours?", "How can I make a appointment?"]
+        },
+        {
+            "tag": "appointment",
+            "patterns": ["appointment", "schedule", "appointments","cancellations", "rescheduling","confirmations", "reminders"],
+            "responses": ["For more booking information, please visit our site: <a href=\"https://918naillounge.com/booking/\" target=\"_blank\">Visit Example Website</a>"],
+            "suggestions": ["What are your business hours?", "What services do you offer?"]
+        },
+        {
+            "tag": "services",
+            "patterns": ["nail", "services","available", "options", "types", "specialize", "service", "offered", "package", "manicures", "pedicures", "offer", "art", "design", "creative", "unique", "designs", "safety", "hygiene", "servicescan", "polish", "treatments"],
+            "responses": ["We offer these service... , visit our site for me!"],
+            "suggestions": ["What are your business hours?","Thank you!"]
         }
+        ,
+        {
+            "tag": "question",
+            "patterns": ["I have other question","question","other question"],
+            "responses": ["Yes, what question do you have?"],
+            "suggestions": ["What are your business hours?", "Where are you located?", "What services do you offer?"]
+        }
+
     ]
 }
