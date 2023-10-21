@@ -5,7 +5,7 @@
 <img width="1344" alt="Screen Shot 2023-10-20 at 10 49 41 PM" src="https://github.com/duyquangbui99/Support-Chatbot/assets/77463586/10126489-cbd9-4afa-8118-c010aa3f10b8">
 
 
-Welcome to the Nail Salon Rule-Based Chatbot, your virtual assistant for quick and convenient information about our nail salon services. This chatbot follows predefined rules to respond to your inquiries. Whether you have questions about our services, need appointment details, or want to explore more, our Nail Salon Chatbot is here to assist.
+Welcome to the Nail Salon Rule-Based Chatbot, your virtual assistant for quick and convenient information about the nail salon services. This chatbot follows predefined rules to respond to your inquiries.
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ Welcome to the Nail Salon Rule-Based Chatbot, your virtual assistant for quick a
 
 ## Introduction
 
-The Nail Salon Rule-Based Chatbot is a web-based virtual assistant designed to provide quick responses to common questions about our nail salon. This README offers a detailed overview of the project, including its features, underlying technologies, and how it operates based on predefined rules.
+The Nail Salon Rule-Based Chatbot is a web-based virtual assistant designed to provide quick responses to common questions about nail salon business. This README offers a detailed overview of the project, including its features, underlying technologies, and how it operates based on predefined rules.
 
 
 
