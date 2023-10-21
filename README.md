@@ -1,6 +1,3 @@
-Certainly! I can help you adjust the README to accurately describe your rule-based chatbot and its features. Here's the modified README:
-
----
 
 # Nail Salon Rule-Based Chatbot
 
