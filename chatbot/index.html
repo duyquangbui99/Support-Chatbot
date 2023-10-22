@@ -12,7 +12,7 @@
     <div class="home">
 
          <!--About Me-->
-         <div class="intro">
+         <div class="intro" id="intro">
             <div class="intro-animation">
                 <img src="images/chat-bot-animate.svg" alt="animation">
             </div>
@@ -24,19 +24,22 @@
                     need appointment details, or just want beauty tips, 
                     our Nail Salon Assistant is here to assist.
                     </p>
+                    <div class="get-started-btn">
+                        <button id="get-started-btn">Get Started</button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!--ChatBot-->
-        <div class="chatbox blur-effect">
+        <div class="chatbox blur-effect hidden" id="chatbot">
             <!-- 
             <div class="chatbox-introduction">
 
             </div>-->
             <div class="chatbox-header">
                 <div class="header-btn">
-                    <button class="goback-btn"><i class="fa-solid fa-angle-left" style="color: #000000;"></i></button>
+                    <button class="goback-btn" id="goback-btn"><i class="fa-solid fa-angle-left" style="color: #000000;"></i></button>
                 </div>
                 <div class="bot-name-holder">
                     <h2>Support Bot</h2>
@@ -65,7 +68,7 @@
             <div class="chatbox-suggestion">
                 <li class="suggest blur-effect">How can I make a appointment?</li>
                 <li class="suggest blur-effect">What are your business hours?</li> 
-                <li class="suggest blur-effect">What services do you offer?</li>
+                <li class="suggest blur-effect">Say something!</li>
             </div>
             <div class="chatbox-inputfield">
                 <textarea  id="message-input" placeholder="Enter Message..."></textarea>
@@ -79,6 +82,7 @@
     
     <script src="https://kit.fontawesome.com/e997141a75.js" crossorigin="anonymous"></script>
     <script src="scripts.js"></script>
+    <script src="sections/scroll.js"></script>
 </body>
 
 
