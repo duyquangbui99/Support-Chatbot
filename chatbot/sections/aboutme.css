@@ -15,7 +15,7 @@
     z-index:1;
     left: 0;
     bottom: 0;
-    transform: translate(-40%, 40%);
+    transform: translate(-40%, 20%);
     width: 400px;
     height: 400px;
 }
@@ -63,4 +63,27 @@
     font-size: 1.2rem;
     opacity: 0.8;
     padding:20px;
+}
+.get-started-btn{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 20px;
+}
+.get-started-btn button{
+    padding: 5px 10px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.4);
+}
+.get-started-btn button:hover{
+    background: rgba(255,255,255,0.8);
+}
+
+/* ---- Additional Selector--- */
+.hidden{
+    display: none;
+}
+.view{
+    display: unset;
 }
