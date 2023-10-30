@@ -38,7 +38,7 @@
         },
         {
             "tag": "services",
-            "patterns": ["nail", "services","available", "options", "types", "specialize", "service", "offered", "package", "manicures", "pedicures", "offer", "art", "design", "creative", "unique", "designs", "safety", "hygiene", "servicescan", "polish", "treatments"],
+            "patterns": ["nail", "services","available", "options", "types", "specialize", "service", "offered", "package", "manicures", "pedicures", "offer", "art", "design", "creative", "unique", "designs", "safety", "hygiene", "polish", "treatments"],
             "responses": ["Please visit our site for the services details: <a href=\"https://918naillounge.com/services/\" target=\"_blank\">Our Service Website</a>"],
             "suggestions": ["What are your business hours?","Thank you!"]
         }
