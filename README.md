@@ -70,5 +70,5 @@ To start using the Nail Salon Rule-Based Chatbot, follow these simple steps:
 If you encounter any issues or have further questions about our Nail Salon Rule-Based Chatbot, please feel free to contact us. You can reach out to us via email or visit our website for more information:
 
 - Email: qbiforwork@gmail.com
-- Website: https://www.quangdev.tech/
+- Website: https://www.quangbui.dev/
 ---
