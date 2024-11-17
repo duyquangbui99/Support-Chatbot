@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const suggestionElements = document.querySelectorAll(".suggest");
 
 
-    // Load the intents from the JSON file (replace with your actual JSON URL)
+    // Load the intents from the JSON file
     fetch('intents.json')
         .then(response => response.json())
         .then(data => {
@@ -94,7 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 chatboxContainer.scrollTop = chatboxContainer.scrollHeight;
             }
 
-                    // Function to handle suggestion click
             function handleSuggestionClick(event) {
                 const clickedSuggestion = event.target.textContent;
                 console.log("Clicked suggestion: " + clickedSuggestion); // Add this line to check if the click event is triggered
@@ -102,8 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 scrollToBottom();
             }
             
-
-            // Add click event listeners to suggestion elements
             suggestionElements.forEach(suggestionElement => {
                 suggestionElement.addEventListener("click", handleSuggestionClick);
             });
