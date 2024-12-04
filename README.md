@@ -28,7 +28,7 @@ The Nail Salon Rule-Based Chatbot is a web-based virtual assistant designed to p
 
 - **Prompt Responses**: The chatbot quickly responds to common questions, such as business hours, location, services, and appointments, based on predefined rules.
 
-- **Suggested Questions**: The chatbot offers a list of suggested questions to guide you and help you initiate conversations.
+- **Suggested Questions**: The chatbot offers a list of suggested questions to guide you and help you initiate conversations..
 
 ## Technologies Used
 
